@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+    <style>
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Assignment</h1>
+    </div>
+    <br>
+    <form id="form" class="container" action="">
+        <div class="input-group mb-3">
+            <span class="input-group-text" id="basic-addon1">Enter your name:</span>
+            <input type="text" class="form-control" placeholder="Name" aria-label="Username" aria-describedby="basic-addon1">
+          </div>
+        <div class="input-group mb-3">
+            <span class="input-group-text" id="basic-addon1">Enter the subject:</span>
+            <input type="text" class="form-control" placeholder="subject" aria-label="text" aria-describedby="basic-addon1">
+          </div>
+        <div class="input-group mb-3">
+            <span class="input-group-text" id="basic-addon1">Enter the grades of the assignments:</span>
+            <input type="text"  class="form-control" placeholder="Grade" aria-label="text" aria-describedby="basic-addon1">
+          </div>
+        <div class="input-group mb-3">
+            <span class="input-group-text" id="basic-addon1">Enter the grade of the test1:</span>
+            <input type="text" class="form-control" placeholder="Grade" aria-label="text" aria-describedby="basic-addon1">
+          </div>
+        <div class="input-group mb-3">
+            <span class="input-group-text" id="basic-addon1">Enter the grade of the test2:</span>
+            <input type="text" class="form-control" placeholder="Grade" aria-label="text" aria-describedby="basic-addon1">
+          </div>
+        <div class="input-group mb-3">
+            <span class="input-group-text" id="basic-addon1">Enter the grade of the final test::</span>
+            <input type="text" class="form-control" placeholder="Grade" aria-label="text" aria-describedby="basic-addon1">
+          </div>
+        <label for="btn" id="btn" class="btn btn-primary"> click here</label>
+        
+    </form>
+    <br>
+    <div id="add_here" ></div>
+    <br><br>
+    
+    <script>
+        
+        document.getElementById("btn").addEventListener("click",open_results)
+        document.getElementById("btn").addEventListener("click",Results)
+        function open_results(){
+            document.getElementById("add_here").innerHTML =`<div class="container"  style="border-style: solid; border-width: 1px;" >
+                <div class="row g-3">
+            <div class="col">
+              <h5>Your Name Is :</h5>
+            </div>
+            <div class="col">
+                <p id="name" style="color:red; font-weight: bold;" ></p>
+            </div>
+            
+        </div>
+        <div class="row g-3">
+            <div class="col">
+              <h5>Your Subject Is :</h5>
+            </div>
+            <div class="col">
+                <p  id="subject" style="color:red; font-weight: bold;"></p>
+            </div>
+            
+        </div>
+        <div class="row g-3">
+            <div class="col">
+              <h5>Your Average Is :</h5>
+            </div>
+            <div class="col">
+                <p id="average" style="color:red; font-weight: bold;"></p>
+            </div>
+            
+        </div>
+        <div class="row g-3">
+            <div class="col">
+              <h5>Your Grade Is :</h5>
+            </div>
+            <div class="col">
+                <p id="letter" style="color:red; font-weight: bold;"></p>
+            </div>
+        </div>`;
+        }
+
+        function Results(){
+            var x=document.getElementById("form");
+            var name="";
+            var i;
+            name += x.elements[0].value  ;
+            document.getElementById("name").innerHTML = name;
+            var subject="";
+            subject += x.elements[1].value  ;
+            document.getElementById("subject").innerHTML = subject;
+           
+            
+            // for (i = 0; i < 2 ;i++ ) {
+            // text += x.elements[i].value + "<br>" ;
+            // document.getElementById("info").innerHTML = text;
+            // }
+
+            var avg = 5;
+            var avg_new=6;
+            var x=document.getElementById("form");
+            var i;
+            for (i = 2; i < 6 ;i++ ) {
+            avg = parseInt(x.elements[i].value) ;
+            avg_new = avg + avg_new;
+            }
+            var final_avg=avg_new/4
+            document.getElementById("average").innerHTML = final_avg;
+            
+
+            if(final_avg >=90){
+                document.getElementById("letter").innerHTML = "A";
+            }else if(final_avg >=80){
+                document.getElementById("letter").innerHTML = "B";
+            }else if(final_avg >=70){
+                document.getElementById("letter").innerHTML = "C";
+            }else if(final_avg >=60){
+                document.getElementById("letter").innerHTML = "D";
+            }else{
+                document.getElementById("letter").innerHTML = "F";
+            }
+            
+
+        }
+
+    </script>
+</body>
+</html>
